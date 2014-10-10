@@ -52,3 +52,8 @@ docs/_build/
 
 # PyBuilder
 target/
+
+.settings/
+.metadata/
+.project
+.pydevproject
