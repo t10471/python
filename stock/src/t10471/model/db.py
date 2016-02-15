@@ -16,7 +16,7 @@ class Stock(Base):
     business      = relationship('Business', backref=backref('business_code', order_by=business_code))
 
     __table_args__ =    {'mysql_engine':'InnoDB','mysql_charset':'utf8'}
-    def __init__(self, code,market_code,name,business_code,create_time):
+    def __init__(self, code, market_code, name, business_code, create_time):
         self.code          = code
         self.name          = name
         self.market_code   = market_code
@@ -58,23 +58,23 @@ class Market(Base):
 
     __table_args__ = {'mysql_engine':'InnoDB','mysql_charset':'utf8'}
 
-    def __init__(self, code, name,create_time):
+    def __init__(self, code, name, create_time):
         self.code = code
         self.name = name
         self.create_time = create_time
     def __repr__(self):
-        return "<Stock('%s','%s', '%s')>" % (self.code, self.name,self.create_time)
+        return "<Market('%s','%s', '%s')>" % (self.code, self.name,self.create_time)
 
 # 業種
 class Business(Base):
     __tablename__ = 'business'
-    business_code = Column('code', Integer, primary_key=True, autoincrement=True)
-    business_name = Column('name', Text)
+    code = Column('code', Integer, primary_key=True, autoincrement=True)
+    name = Column('name', Text)
     create_time   = Column('create_time', TIMESTAMP,default=sqlalchemy.func.now())
 
     __table_args__ = {'mysql_engine':'InnoDB','mysql_charset':'utf8'}
 
-    def __init__(self, code,name,create_time):
+    def __init__(self, code, name, create_time):
         self.code = code
         self.name = name
         self.create_time   = create_time

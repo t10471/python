@@ -1,0 +1,7 @@
+./t10471/html/getter
+./t10471/html/parser
+./t10471/yahoo/finance/stock/ranking/html/getter
+./t10471/yahoo/finance/stock/ranking/html/parser
+./t10471/migration
+./t10471/migration/versions
+./t10471/model

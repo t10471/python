@@ -4,8 +4,6 @@
 import re, datetime, urllib
 import mechanize
 from BeautifulSoup import BeautifulSoup
-#from html5lib import HTMLParser 
-#from html5lib import treebuilders
 from HTMLParser import HTMLParseError
 import re, string
 from  insert_table import dbManager
