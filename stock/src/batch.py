@@ -1,5 +1,3 @@
-#*- coding: utf-8 -*-
-
 from jholiday import holiday_name
 from datetime import date
 
@@ -14,9 +12,6 @@ day_name = holiday_name(date=today)
 def do_weekday():
     pass
 
-#土日休日でない場合
+# 土日休日でない場合
 if (day_name is not None) and (day not in WEEKEND):
     do_weekday()
-
-
-
