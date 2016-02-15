@@ -23,7 +23,7 @@ class Stock(Base):
         self.business_code = business_code
         self.create_time   = create_time
     def __repr__(self):
-        return "<Stock('%s','%s', '%s', '%s', '%s')>" % (self.code,self.name,self.market_code, self.name,self.business_code,self.create_time)
+        return "<Stock('%s','%s', '%s', '%s', '%s')>" % (self.code,self.market_code,self.name,self.business_code,self.create_time)
 
 class StockDate(Base):
     __tablename__ =  'stock_date'

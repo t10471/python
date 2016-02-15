@@ -1,5 +1,6 @@
 from t10471.model.connection import get_session
-from t10471.model.db import Stock, Market, Business
+from t10471.model.db import Stock, Market, Business, StockDate
+from sqlalchemy import and_
 
 class Register(object):
 
@@ -37,6 +38,27 @@ class Register(object):
 
     def getBusinessCode(self):
         return self.business.code
+
+    def getStocks(self):
+        return self.sess.query(Stock).order_by(Stock.code)
+
+    def getTodayStockDate(self, stock, date):
+        return self.sess.query(StockDate).filter(and_(StockDate.stock_code == stock.code, StockDate.date == date))
+
+    def countSotckData(self, stock):
+        return self.sess.query(StockDate).filter(StockDate.stock_code == stock.code).count()
+
+    def setStockDate(self, stock_code, date, start_price, max_price, min_price, end_price, volume):
+        self.stock_date = StockDate(stock_code, date, start_price, max_price, min_price, end_price, volume, None)
+        print(self.stock_date)
+
+    def clearStockDate(self):
+        self.stock_date = None
+
+    def registerStockDate(self):
+        if self.stock_date is None:
+            return
+        self.sess.add(self.stock_date)
 
     def commit(self):
         self.sess.commit()
