@@ -42,6 +42,9 @@ class Register(object):
     def getStocks(self):
         return self.sess.query(Stock).order_by(Stock.code)
 
+    def getStockDate(self, stock):
+        return self.sess.query(StockDate).filter(StockDate.stock_code == stock.code).order_by(StockDate.date)
+
     def getTodayStockDate(self, stock, date):
         return self.sess.query(StockDate).filter(and_(StockDate.stock_code == stock.code, StockDate.date == date))
 
