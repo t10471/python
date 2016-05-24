@@ -2,14 +2,16 @@
 import collections
 
 class DistinctError(Exception):
+
     def __init__(self, key, value):
         self.key = key
         self.vale = value
     def __str__(self):        # エラーメッセージ
         return 'ERROR value duplicate key = "%s", value = "%s"' % (self.key, self.vale)
 
-#辞書を継承
+# 辞書を継承
 class distinctdict(dict):
+
     def __setitem__(self, key, value):
         for existing_key, existing_value in self.items():
             if existing_value == value and existing_key != key:
@@ -21,18 +23,20 @@ my = distinctdict()
 my['key'] = 'value'
 try:
     my['other_key'] = 'value'
-except DistinctError, inst:
-    print inst      # __str__で引数を表示
+except DistinctError as inst:
+    print(inst)  # __str__で引数を表示
+
 my['other_key'] = 'value2'
 print(my)
 
-#リストを継承
+# リストを継承
 class folder(list):
+
     def __init__(self, name):
         super(folder, self).__init__()
         self.name = name
 
-    def dir(self): #@ReservedAssignment
+    def dir(self):  # @ReservedAssignment
         print('I am the %s foler:' % self.name)
         for element in self:
             print(element)
@@ -44,6 +48,7 @@ the.dir()
 
 
 class ListBasedSet(collections.Set):
+
     ''' Alternate set implementation favoring space over speed
         and not requiring the set elements to be hashable. '''
     def __init__(self, iterable):
@@ -67,7 +72,7 @@ print(s2)
 for el in s2:
     print(el)
 
-overlap = s1 & s2            # The __and__() method is supported automatically
+overlap = s1 & s2  # The __and__() method is supported automatically
 print(overlap)
 for el in overlap:
     print(el)

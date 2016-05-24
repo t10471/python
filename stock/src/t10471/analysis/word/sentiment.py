@@ -52,7 +52,7 @@ class Sentiment():
 
     def reverse(self, dics):
         print(dics)
-        exit()
+        # exit()
         pass
 
     def print(self, parsed):
