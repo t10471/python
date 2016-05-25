@@ -1,4 +1,4 @@
-from jholiday import holiday_name
+from lib.jholiday import holiday_name
 from datetime import date
 
 
